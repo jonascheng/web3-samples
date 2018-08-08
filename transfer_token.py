@@ -62,8 +62,11 @@ def main(provider_endpoint_uri, private_key):
   jmt_tx = token_contract.functions.transfer(
     to_address,
     to_amount).buildTransaction({
+      # testnet
       'chainId': 3,
+      # gas limit
       'gas': 100000,
+      # gas price in Gwei = 10^-9 Eth
       'gasPrice': web3.eth.gasPrice,
       'nonce': nonce,
     })
